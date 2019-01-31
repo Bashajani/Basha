@@ -1,0 +1,11 @@
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: (nvm) clone nvm
+      git:
+        repo: 'git://github.com/creationix/nvm.git'
+        dest: /usr/local/nvm
+
+    - name: (nvm) export config
+      shell: mkdir -p /etc/profile.d
+             && echo 'source /usr/local/nvm/nvm.sh' > /etc/profile.d/nvm.sh
